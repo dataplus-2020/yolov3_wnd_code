@@ -1,0 +1,7 @@
+category_id	category	color
+0	Aircraft	(154,205,50)
+1	Motor Vehicles	(255,140,0)
+2	Railway	(25,25,112)
+3	Maritime	(255,69,0)
+4	Construction Vehicles	(0,128,0)
+5	Fixed Facilities	(128,0,0)

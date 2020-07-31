@@ -1,0 +1,3 @@
+category_id	category	color
+0	Aircraft	(154,205,50)
+

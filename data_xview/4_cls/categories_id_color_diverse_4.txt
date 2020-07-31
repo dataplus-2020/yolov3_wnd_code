@@ -1,0 +1,8 @@
+category_id	category	color
+0	Fixed-Wing Aircraft	(154,205,50)
+1	Helicopter	(154,205,50)
+2	Passenger|Cargo Plane	(154,205,50)
+3	Small Aircraft	(154,205,50)
+
+
+

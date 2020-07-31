@@ -1,0 +1,5 @@
+/media/lab/Yang/data/xView_YOLO/labels/608/1_cls_xcycwh_px23whr3_m4_only_one_with_modelid/2315_0.txt
+/media/lab/Yang/data/xView_YOLO/labels/608/1_cls_xcycwh_px23whr3_m4_only_one_with_modelid/2315_3.txt
+/media/lab/Yang/data/xView_YOLO/labels/608/1_cls_xcycwh_px23whr3_m4_only_one_with_modelid/1154_1.txt
+/media/lab/Yang/data/xView_YOLO/labels/608/1_cls_xcycwh_px23whr3_m4_only_one_with_modelid/2315_4.txt
+/media/lab/Yang/data/xView_YOLO/labels/608/1_cls_xcycwh_px23whr3_m4_only_one_with_modelid/1127_1.txt
