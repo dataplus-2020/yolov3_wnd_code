@@ -2,7 +2,7 @@
 For general information about using the Ultralytics YOLOv3, please visit https://github.com/ultralytics/yolov3.
 
 # Description
-For our experiment, we trained this model on overhead imagery to detect wind turbines. We also created synthetic overhead imagery to supplement our training data set. Because of this, we have many different preprocessing scripts that are meant for the real and synthetic overhead imagery.
+For our experiment, we trained this model on overhead imagery to detect wind turbines. We also created synthetic overhead imagery to supplement our training data set. Because of this, we have added many different preprocessing scripts that are meant for the real and synthetic overhead imagery that are not found with the ultralytics yolov3.
 
 # Uploading Data
 Create a folder for the data, such as yolov3_wnd_code/data. For real imagery, this should be set of images and formatted labels in a folder such as yolov3_wnd_code/data/images_and_labels. The labels should be formatted with each line as: class x-coordinate y-coordinate height width. These values are proportions relative to the size of the image rather than pixel values and the x-coordinate and y-coordinate are for the center of the bounding box. Each line corresponds to a single bounding box. You also need to upload a .NAMES file that has lists the names of the classes you are trying to detect (an example of this can be found in data_wnd)
