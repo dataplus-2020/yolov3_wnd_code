@@ -6,7 +6,8 @@ For our experiment, we trained this model on overhead imagery to detect wind tur
 
 # Uploading Data
 Create a folder for the data, such as yolov3_wnd_code/data. For real imagery, this should be set of images and formatted labels in a folder such as yolov3_wnd_code/data/images_and_labels. The labels should be formatted with each line as: class x-coordinate y-coordinate height width. These values are proportions relative to the size of the image rather than pixel values and the x-coordinate and y-coordinate are for the center of the bounding box. Each line corresponds to a single bounding box.
-<img src="https://github.com/dataplus-2020/yolov3_wnd_code/blob/master/example_label.png">
+
+<img src="https://github.com/dataplus-2020/yolov3_wnd_code/blob/master/example_label.png" height="50%" width="50%">
 
 # Preprocessing
 ## Real Overhead Imagery
