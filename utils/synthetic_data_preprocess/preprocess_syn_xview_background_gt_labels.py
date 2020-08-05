@@ -116,7 +116,20 @@ def draw_bbx_on_rgb_images(dt, px_thresh=20, whr_thres=4):
         txt_file = os.path.join(annos_path, img_names[ix].replace(IMG_FORMAT, TXT_FORMAT))
         gbc.plot_img_with_bbx(f, txt_file, save_bbx_path, label_index=False)
 
-
+def create_paths(seed=17, comment='wnd_syn_CA_AZ', pxwhr='px5whr6'):
+    step=syn_args.tile_size * syn_args.resolution
+    all_syn_files = np.sort(glob.glob(os.path.join(syn_args.syn_data_dir, 'color_all_images_step{}'.format(step), '*.png')))
+    np.random.shuffle(all_syn_files)
+    data_txt_dir = syn_args.syn_txt_dir
+    img_paths = open(os.path.join(data_txt_dir, '{}_img_seed{}.txt'.format(comment, seed)), 'w')
+    lbl_paths = open(os.path.join(data_txt_dir, '{}_lbl_seed{}.txt'.format(comment, seed)), 'w')
+    lbl_dir = os.path.join(syn_args.syn_annos_dir, 'minr{}_linkr{}_{}_color_all_annos_txt_step{}'.format(syn_args.min_region, syn_args.link_r, pxwhr, step))
+    for image in all_syn_files:
+        img_paths.write('%s\n' % image)
+        lbl_paths.write('%s\n' % os.path.join(lbl_dir, os.path.basename(image).replace(IMG_FORMAT, TXT_FORMAT)))
+    img_paths.close()
+    lbl_paths.close()
+    
 def split_syn_xview_background_trn_val(seed=17, comment='syn_color', pxwhr='px23whr3'):
 
     display_type = comment.split('_')[-1]
@@ -238,8 +251,10 @@ if __name__ == '__main__':
     for dt in display_types:
         draw_bbx_on_rgb_images(dt, px_thres, whr_thres)
 
+    create_paths()
     '''
     split train val
+    '''
     '''
     comments = ['syn_mixed']
     pxwhr = 'px23whr3'
@@ -249,13 +264,14 @@ if __name__ == '__main__':
     seed = 17
     for cmt in comments:
         base_pxwhrs = base_pxwhrs.format(seed)
-        split_syn_xview_background_trn_val(seed, cmt, pxwhr)
+        split_syn_xview_background_trn_val(seed, cmt, pxwhr)'''
 
     '''
     create *.data
     '''
+    '''
     comments = ['syn_mixed']
     for cmt in comments:
-        create_syn_data(cmt, seed=17)
+        create_syn_data(cmt, seed=17)'''
 
 
