@@ -1,0 +1,9 @@
+train=/hdd/dataplus/dataplus2020/code/yxu-yolov3-xview/data_wnd/real//wnd_train_img_px10_seed17.txt
+train_label=/hdd/dataplus/dataplus2020/code/yxu-yolov3-xview/data_wnd/real//wnd_train_lbl_px10_seed17.txt
+syn_0_xview_number=1239
+classes=1
+valid=/hdd/dataplus/dataplus2020/code/yxu-yolov3-xview/data_wnd/real//wnd_val_img_px10_seed17.txt
+valid_label=/hdd/dataplus/dataplus2020/code/yxu-yolov3-xview/data_wnd/real//wnd_val_lbl_px10_seed17.txt
+names=/hdd/dataplus/dataplus2020/code/yxu-yolov3-xview/data_wnd//wnd.names
+backup=backup/
+eval=wnd
