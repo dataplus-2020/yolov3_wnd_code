@@ -34,11 +34,11 @@ def convert_norm(size, box):
 
 
 def resize_crop_windturbine(syn_args, px_thres = 10):
-    """
+    '''
     divides images and labels from syn_data_dir into 4 patches of size tile_size, writes .jpg and .txt files to save_img_dir and save_lbl_dir
     :param syn_args: var set to get_args()
     :param px_thres: min distance a bounding box can be from patch boundary to be counted
-    """
+    '''
     wt_dir = syn_args.syn_data_dir
     wt_images = np.sort(glob.glob(os.path.join(wt_dir, '*.jpg')))
     wt_lbls = np.sort(glob.glob(os.path.join(wt_dir, '*.txt')))
@@ -157,13 +157,13 @@ def resize_crop_windturbine(syn_args, px_thres = 10):
 
 
 def split_syn_wnd_trn_val(syn_args, comment='wnd', seed=17, pxs='px10_seed17'):
-    """
+    '''
     splits data into training and validation sets and creates lists of paths to images and labels used for training/testing
     :param syn_args: var set to get_args()
     :param comment: determines names of .txt files
     :param seed: sets random seed
     :param pxs: determines names of .txt files
-    """
+    '''
 
     all_imgs = np.sort(glob.glob(os.path.join(syn_args.syn_img_dir, '*.jpg')))
     num_files = len(all_imgs)
@@ -241,12 +241,12 @@ def all_to_val(syn_args, comment='wnd', seed=17, pxs='px10_seed17'):
 
 
 def create_syn_data(syn_args, comment='wnd', pxs='px10_seed17'):
-    """
+    '''
     creates a .data file that stores metadata and the paths to train and val img/lbl lists
     :param syn_args: var set to get_args()
     :param comment: determines names of .data and .txt files
     :param pxs: determines names of .data and .txt files
-    """
+    '''
     data_txt_dir = syn_args.syn_txt_dir
 
     data_txt = open(os.path.join(data_txt_dir, '{}_{}.data'.format(comment, pxs)), 'w')
@@ -267,30 +267,20 @@ def create_syn_data(syn_args, comment='wnd', pxs='px10_seed17'):
 
 
 def get_args():
-    """
+    '''
     sets paths to various relavant folders for accessing imgs/lbls
-    """
+    '''
     parser = argparse.ArgumentParser()
-    '''
+
     parser.add_argument("--syn_data_dir", type=str,
                         help="Path to folder containing raw synthetic images and annos ",
                         default='/home/jovyan/work/data/background_images_for_testing_original/')
 
     parser.add_argument("--syn_img_dir", type=str,
-                        help="Path to folder containing cropped synthetic images ",
-                        default='/home/jovyan/work/data/syn_uspp_bkg_shdw_scatter_uniform_60_wnd_v1/color_all_images_step182.4/')
-    parser.add_argument("--syn_annos_dir", type=str, default='/home/jovyan/work/data/syn_uspp_bkg_shdw_scatter_uniform_60_wnd_v1_txt_xcycwh/minr100_linkr15_px15whr6_color_all_annos_txt_step182.4/',
-                        help="syn label.txt")
-    '''
-    parser.add_argument("--syn_data_dir", type=str,
-                        help="Path to folder containing raw synthetic images and annos ",
-                        default='/home/jovyan/work/data/background_images_for_testing_original/')
-
-    parser.add_argument("--syn_img_dir", type=str,
-                        help="Path to folder containing cropped synthetic images",
+                        help="Path to folder containing/that will contain cropped synthetic images ",
                         default='/home/jovyan/work/data/cropped_bg_imgs/')
     parser.add_argument("--syn_annos_dir", type=str, default='/home/jovyan/work/data/cropped_bg_labels/',
-                        help="Path to folder containing cropped synthetic labels")
+                        help="Path to folder containing/that will contain cropped synthetic labels ")
     
     parser.add_argument("--syn_box_dir", type=str, default='/home/jovyan/work/data/wind_turbine_bbox/',
                         help="syn related txt files")
