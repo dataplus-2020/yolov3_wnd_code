@@ -26,6 +26,7 @@ Before training, you should have:
 * Four .txt files that list paths: training images, training labels, validation images, validation labels
 * A .NAMES file that lists the names of the classes
 * .json file that provides the path of the .data file in train_cfg (you can also change the batch size and num of epochs here)  
+
 The final step is to edit train.sh, and make sure that the cfg_dict path is set to the .json file you want to use. You can additionally change the hyperparameters in train_syn_xview_background_1cls_mean_best_example.py before training.
 Then, you can run `bash train.sh` and it will start training!
 
