@@ -12,7 +12,7 @@ Create a folder for the data, such as yolov3_wnd_code/data. For real imagery, th
 # Preprocessing
 
 ## Real Overhead Imagery
-Our real overhead imagery was 1114x1114 and 1114x1115 images that we hand-labeled. To improve efficiency and to get images of the same exact dimensions, we chose to use 608x608 images. In utils/data_process_distribution_vis_util/preprocess_wv_for_windturbine.py, this script takes these large overhead images and their labels and extracts four 608x608 images with their corresponding labels. It also splits the data randomly into training and validation and creates a .DATA file that refers to the training and validation files. To use this script with your custom data, simply change the arguments of the file to point to the data folder you have uploaded. For more info, read the documentation for the functions in preprocess_wv_for_windturbinie.py.
+Our real overhead imagery was 1114x1114 and 1114x1115 images that we hand-labeled. To improve efficiency and to get images of the same exact dimensions, we chose to use 608x608 images. In utils/data_process_distribution_vis_util/preprocess_wv_for_windturbine.py, this script takes these large overhead images and their labels and extracts four 608x608 images with their corresponding labels. It also splits the data randomly into training and validation and creates a .DATA file that refers to the training and validation files. To use this script with your custom data, simply change the paths in the get_args() function of the file to point to the data folder you have uploaded. For more info, read the documentation for the functions in preprocess_wv_for_windturbinie.py.
 
 ## Synthetic Overhead Imagery
 After creating synthetic imagery using CityEngine, we had a set of 608x608 RGB images with corresponding black and white segmented images that provided the locations of the wind turbines. In these black and white images, the wind turbines were colored black. The preprocessing script, utils/synthetic_data_preprocess/preprocess_syn_xview_background_gt_labels.py is used to convert these black and white images into formatted labels. A function in this script also splits the data into training and validation and creates a .DATA file that refers to those files, however, this would include synthetic data in the validation set. As is, the function will create two .txt files that list the paths for the synthetic images and labels. Afterwards, you can simply copy and paste these into training set image and label .txt files that you want to supplement. To use this script with your custom data, simply change the arguments of the file to point to the data folder you have uploaded. For more info, read the documentation in preprocess_syn_xview_background_gt_labels.py.
@@ -25,7 +25,7 @@ Before training, you should have:
 * .data file that lists the paths of the four .txt files
 * Four .txt files that list paths: training images, training labels, validation images, validation labels
 * A .NAMES file that lists the names of the classes
-* .json file that provides the path of the .data file
+* .json file that provides the path of the .data file in train_cfg (you can also change the batch size and num of epochs here)
 The final step is to edit train.sh, and make sure that the cfg_dict path is set to the .json file you want to use. You can additionally change the hyperparameters in train_syn_xview_background_1cls_mean_best_example.py before training.
 Then, you can run `bash train.sh` and it will start training!
 
